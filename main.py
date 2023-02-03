@@ -1,9 +1,6 @@
 from aiogram import Bot, Dispatcher, executor, types
 from handlers import dp
 
-total = 0
-bot_score = 0
-player_score = 0
 
 async def on_start(_):
     print('Бот запущен')
