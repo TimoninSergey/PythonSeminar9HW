@@ -51,13 +51,15 @@ async def mes_game(message: types.Message):
                     player_score = player_score + int(message.text)
                     if 0 < total < 28:
                         bot_num = random.randint(1, total)
+                        await message.answer(f'Бот взял {bot_num} конфет')
                     elif total > 28:
                         bot_num = random.randint(1,28)
+                        await message.answer(f'Бот взял {bot_num} конфет')
                     elif total == 0:
                         bot_num = 0
+                        await message.answer(f'На бота конфет не хватило')
                     total = total - bot_num
                     bot_score = bot_score + bot_num
-                    await message.answer(f'Бот взял {bot_num} конфет')
                     await message.answer(f'Ваш счет - {player_score}, счет бота - {bot_score}')
                     if total != 0:
                         await message.answer(f'На столе осталось {total} конфет')
