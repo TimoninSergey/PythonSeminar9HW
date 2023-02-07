@@ -2,6 +2,7 @@ from aiogram import Bot, Dispatcher, executor, types
 from create import dp
 from aiogram.dispatcher.filters import Filter
 import random
+from keyboards import kb_main_menu
 
 total = 0
 player_score = 0
@@ -9,7 +10,8 @@ bot_score = 0
 
 @dp.message_handler(commands=['start'])
 async def mes_start(message: types.Message):
-    await message.answer(f'Привет, {message.from_user.first_name}! Мы будем играть в конфеты! Для просмотра правил введите /rules!')
+    await message.answer(f'Привет, {message.from_user.first_name}! Мы будем играть в конфеты! Для просмотра правил введите /rules!',
+                        reply_markup=kb_main_menu)
 
 @dp.message_handler(commands=['rules', 'Rules'])
 async def mes_rules(message: types.Message):
